@@ -21,6 +21,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'joshdick/onedark.vim'
+Plugin 'itchyny/lightline.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'junegunn/fzf.vim'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
