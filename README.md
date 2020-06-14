@@ -13,8 +13,15 @@ after gettting vundle go to terminal and type
 
 Install the plugins by running in teh .vimrc file :PluginInstall
 
-to setup FZF you need to do the following:
+
+tosetup FZF you need to do the following:
   TODO
+
+
+to get auto complete working you need to install your language plugin below:
+  :CocInstall coc-java
+  :CocInstall coc-python
+  :CocInstall coc-tsserver --> this is js and ts
   
   
   
