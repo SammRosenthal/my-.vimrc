@@ -14,5 +14,7 @@ after gettting vundle go to terminal and type
 Install the plugins by running in teh .vimrc file :PluginInstall
 
 to setup FZF you need to do the following:
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-  ~/.fzf/install
+  TODO
+  
+  
+  
