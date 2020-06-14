@@ -3,12 +3,23 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.fzf
 set splitright
 set nu
 set encoding=utf-8
 set relativenumber
+set nowrap
+set smartcase
+set noswapfile
+set noerrorbells
+set noshowmatch
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set updatetime=50
 
 " remaps
+nnoremap <SPACE> <Nop>
 nmap <F6> :NERDTreeToggle<CR>
 
 
@@ -23,7 +34,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'joshdick/onedark.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
+Plugin 'neoclide/coc.nvim'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
@@ -37,4 +50,13 @@ colorscheme onedark
 
 " ignore files in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$', 'node_packages']
- 
+let g:ackprg = 'ag --nogroup --nocolor --column'
+let mapleader=" "
+
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+autocmd BufWritePre * :call TrimWhitespace()
