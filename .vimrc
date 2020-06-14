@@ -37,3 +37,4 @@ colorscheme onedark
 
 " ignore files in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$', 'node_packages']
+ 
