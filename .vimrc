@@ -17,11 +17,18 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
 set updatetime=50
+set statusline=
+set statusline+=%m
+set statusline+=\ %f
+set statusline+=%=
+set statusline+=\ %{LinterStatus()}
 
 " remaps
+let mapleader=" "
 nnoremap <SPACE> <Nop>
 nmap <F6> :NERDTreeToggle<CR>
-
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gr <Plug>(coc-references)
 
 call vundle#begin()
 
@@ -34,9 +41,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'joshdick/onedark.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plugin 'junegunn/fzf.vim'
 Plugin 'neoclide/coc.nvim'
+Plugin 'dense-analysis/ale'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
@@ -51,12 +57,33 @@ colorscheme onedark
 " ignore files in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$', 'node_packages']
 let g:ackprg = 'ag --nogroup --nocolor --column'
-let mapleader=" "
 
-fun! TrimWhitespace()
+function TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
     call winrestview(l:save)
-endfun
+endfunction
 
-autocmd BufWritePre * :call TrimWhitespace()
+" add all your plugins here (note older versions of Vundle
+" used Bundle instead of Plugin)
+
+" linters
+let g:ale_linters = {
+    \ 'python': ['flake8', 'pylint'],
+    \ 'javascript': ['eslint'],
+    \ 'java': ['google-java-format'],
+    \}
+
+function! LinterStatus() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+
+  return l:counts.total == 0 ? '✨ all good ✨' : printf(
+        \   '😞 %dW %dE',
+        \   all_non_errors,
+        \   all_errors
+        \)
+endfunction
+
