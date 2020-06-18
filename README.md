@@ -13,10 +13,9 @@ after gettting vundle go to terminal and type
 
 Install the plugins by running in teh .vimrc file :PluginInstall
 
-
-tosetup FZF you need to do the following:
-  TODO
-
+Vim 8 on Unix
+- mkdir -p ~/.vim/pack/git-plugins/start
+- git clone --depth 1 https://github.com/dense-analysis/ale.git ~/.vim/pack/git-plugins/start/ale
 
 to get auto complete working you need to install your language plugin below:
   :CocInstall coc-java
