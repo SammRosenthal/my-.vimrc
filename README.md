@@ -13,5 +13,5 @@ to get auto complete working you need to install your language plugin below:
   :CocInstall coc-python
   :CocInstall coc-tsserver --> this is js and ts
   
-  
+Make sure to paste the Coc json file in by going to :CocConfig  
   
