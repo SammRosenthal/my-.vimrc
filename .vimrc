@@ -3,7 +3,6 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=~/.fzf
 set splitright
 set nu
 set encoding=utf-8
@@ -25,30 +24,31 @@ set statusline+=\ %{LinterStatus()}
 
 " remaps
 let mapleader=" "
-nnoremap <SPACE> <Nop>
+
 nmap <F6> :NERDTreeToggle<CR>
+nnoremap <SPACE> <Nop>
+nnoremap <C-R> :GFiles<CR>
+nnoremap <C-h> :Rg<CR>
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
+nmap <leader>gr <Plug>(coc-type-definition)
 
-call vundle#begin()
+call plug#begin("~/.vim/plugged")
 
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'joshdick/onedark.vim'
-Plugin 'itchyny/lightline.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'neoclide/coc.nvim'
-Plugin 'dense-analysis/ale'
-
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'joshdick/onedark.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'mileszs/ack.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'w0rp/ale'
+call plug#end()            " required
 filetype plugin indent on    " required
 
 syntax on
@@ -56,7 +56,7 @@ colorscheme onedark
 
 " ignore files in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$', 'node_packages']
-let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ackprg = 'ag --vimgrep'
 
 function TrimWhitespace()
     let l:save = winsaveview()
