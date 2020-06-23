@@ -74,8 +74,12 @@ endfunction
 let g:ale_linters = {
     \ 'python': ['flake8', 'pylint'],
     \ 'javascript': ['eslint'],
-    \ 'java': ['google-java-format'],
     \}
+let g:coc_global_extensions = [
+    \ 'coc-tsserver',
+    \ 'coc-python',
+    \ 'coc-json',
+    \]
 
 function! LinterStatus() abort
   let l:counts = ale#statusline#Count(bufnr(''))
