@@ -80,6 +80,7 @@ let g:coc_global_extensions = [
     \ 'coc-tsserver',
     \ 'coc-python',
     \ 'coc-json',
+    \ 'coc-css',
     \]
     
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
