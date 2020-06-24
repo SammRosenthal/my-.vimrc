@@ -15,6 +15,7 @@ set noshowmatch
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
+set belloff=all
 set updatetime=50
 set statusline=
 set statusline+=%m
