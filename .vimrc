@@ -9,6 +9,7 @@ set encoding=utf-8
 set relativenumber
 set nowrap
 set smartcase
+set background=dark
 set noswapfile
 set noerrorbells
 set noshowmatch
