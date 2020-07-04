@@ -31,9 +31,9 @@ nmap <F6> :NERDTreeToggle<CR>
 nnoremap <SPACE> <Nop>
 nnoremap <C-R> :GFiles<CR>
 nnoremap <C-h> :Rg<CR>
-nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gr <Plug>(coc-references)
-nmap <leader>gr <Plug>(coc-type-definition)
+nmap gd <Plug>(coc-definition)
+nmap gr <Plug>(coc-references)
+nmap gr <Plug>(coc-type-definition)
 
 call plug#begin("~/.vim/plugged")
 
