@@ -54,6 +54,7 @@ Plug 'w0rp/ale'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()            " required
 filetype plugin indent on    " required
 
