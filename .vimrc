@@ -55,11 +55,12 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'jiangmiao/auto-pairs'
+Plug 'morhetz/gruvbox'
 call plug#end()            " required
 filetype plugin indent on    " required
 
 syntax on
-colorscheme onedark
+colorscheme gruvbox
 
 " ignore files in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$', 'node_packages']
