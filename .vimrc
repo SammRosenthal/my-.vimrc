@@ -1,5 +1,5 @@
-set nocompatible              " required
-filetype off                  " required
+set nocompatible
+filetype off
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -9,20 +9,20 @@ set encoding=utf-8
 set relativenumber
 set nowrap
 set smartcase
-set background=dark
 set noswapfile
 set noerrorbells
+set belloff=all
 set noshowmatch
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
-set belloff=all
 set updatetime=50
 set statusline=
 set statusline+=%m
 set statusline+=\ %f
 set statusline+=%=
-set statusline+=\ %{LinterStatus()}
+set statusline+=\ %{LinterStats()}
+set background=dark
 
 " remaps
 let mapleader=" "
@@ -32,39 +32,53 @@ nnoremap <SPACE> <Nop>
 nnoremap <C-R> :GFiles<CR>
 nnoremap <C-h> :Rg<CR>
 nmap gd <Plug>(coc-definition)
-nmap gr <Plug>(coc-references)
-nmap gr <Plug>(coc-type-definition)
+nmap gr <Plug>(coc-reference)
+nmap gt <Plug>(coc-type-definition)
 
 call plug#begin("~/.vim/plugged")
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle required
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'joshdick/onedark.vim'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'itchyny/lightline.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'mileszs/ack.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'w0rp/ale'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'joshdick/onedark.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'mileszs/ack.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'w0rp/ale'
 Plug 'morhetz/gruvbox'
-call plug#end()            " required
-filetype plugin indent on    " required
-
+Plug 'jiangmiao/auto-pairs'
+call plug#end()
+ 
+filetype plugin indent on
 syntax on
 colorscheme gruvbox
 
-" ignore files in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$', 'node_packages']
+let g:ale_fix_on_save=1
 let g:ackprg = 'ag --vimgrep'
+let g:coc_disable_startup_warning=1
+
+let g:ale_linters = {
+    \ 'python': ['flake8', 'pylint'],
+     \ 'javascript': ['eslint'],
+     \}
+let g:coc_global_extensions = [
+    \ 'coc-tsserver',
+    \ 'coc-python',
+    \ 'coc-json',
+     \ 'coc-css',
+    \]
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+    let g:coc_global_extensions += ['coc-prettier']
+endif
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+    let g:coc_global_extensions += ['coc-eslint']
+endif
 
 function TrimWhitespace()
     let l:save = winsaveview()
@@ -72,48 +86,25 @@ function TrimWhitespace()
     call winrestview(l:save)
 endfunction
 
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
-
-" linters
-let g:ale_linters = {
-    \ 'python': ['flake8', 'pylint'],
-    \ 'javascript': ['eslint'],
-    \}
-let g:coc_global_extensions = [
-    \ 'coc-tsserver',
-    \ 'coc-python',
-    \ 'coc-json',
-    \ 'coc-css',
-    \]
-    
-if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
-  let g:coc_global_extensions += ['coc-prettier']
-endif
-if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-  let g:coc_global_extensions += ['coc-eslint']
-endif
-
 function! LinterStatus() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
 
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-
-  return l:counts.total == 0 ? '✨ all good ✨' : printf(
-        \   '😞 %dW %dE',
-        \   all_non_errors,
-        \   all_errors
-        \)
+    return L:counts.total == 0 ? 'all good' : printf(
+               \   '%dW %dE',
+               \   all_non_errors,
+               \   all_errors
+               \)
 endfunction
 
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1] =~# '\s'
 endfunction
