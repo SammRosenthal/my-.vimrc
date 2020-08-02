@@ -63,7 +63,6 @@ let g:ackprg = 'ag --vimgrep'
 let g:coc_disable_startup_warning=1
 
 let g:ale_linters = {
-    \ 'python': ['flake8', 'pylint'],
      \ 'javascript': ['eslint'],
      \}
 let g:coc_global_extensions = [
