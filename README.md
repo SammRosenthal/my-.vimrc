@@ -3,6 +3,13 @@
 
 need to install vim-plug for plugin in management - https://github.com/junegunn/vim-plug
 
+on linux distros you will need to install:
+  git
+  nodejs
+  npm
+  neovim
+  vim
+
 "vim ~/.vimrc" and paste the contents of this repo in it
 
 Install the plugins by running in teh .vimrc file :PlugInstall
