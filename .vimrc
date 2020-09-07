@@ -31,11 +31,13 @@ nmap <F6> :NERDTreeToggle<CR>
 nnoremap <SPACE> <Nop>
 nnoremap <C-R> :GFiles<CR>
 nnoremap <C-h> :Rg<CR>
+nnoremap <C-/> :TComment<CR>
 nmap gd <Plug>(coc-definition)
 nmap gr <Plug>(coc-reference)
 nmap gt <Plug>(coc-type-definition)
 
 call plug#begin("~/.vim/plugged")
+Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'pangloss/vim-javascript'
