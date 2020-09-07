@@ -1,24 +1,16 @@
-# my-.vimrc
+# My .vimrc
 
 
-need to install vim-plug for plugin in management - https://github.com/junegunn/vim-plug
+* Install vim-plug to handle your plugins
+    * https://github.com/junegunn/vim-plug
+* Install sharpkeys to remap escape and caps lock
+    * https://www.randyrants.com/category/sharpkeys/
 
-on linux distros you will need to install:
-  *git
-  *nodejs
-  *npm
-  *neovim
-  *vim
+* Install the following:
+    * git
+    * nodejs
+    * npm
+    * neovim
 
-"vim ~/.vimrc" and paste the contents of this repo in it
-
-Install the plugins by running in teh .vimrc file :PlugInstall
-
-
-to get auto complete working you need to install your language plugin below:
-  *:CocInstall coc-java
-  *:CocInstall coc-python
-  *:CocInstall coc-tsserver --> this is js and ts
-  
-Make sure to paste the Coc json file in by going to :CocConfig  
-  
+* Paste the contens of the .vimrc file in this repo to "~/.vimrc" on your machine
+* Install plugins by running :PlugInstall
