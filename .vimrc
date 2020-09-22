@@ -32,12 +32,14 @@ nnoremap <SPACE> <Nop>
 nnoremap <C-R> :GFiles<CR>
 nnoremap <C-h> :Rg<CR>
 nnoremap <C-/> :TComment<CR>
+nnoremap <C-i> :ALEDetail<CR>
 nmap gd <Plug>(coc-definition)
 nmap gr <Plug>(coc-reference)
 nmap gt <Plug>(coc-type-definition)
 
 call plug#begin("~/.vim/plugged")
 Plug 'tomtom/tcomment_vim'
+Plut 'leafOfTree/vim-vue-plugin'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'pangloss/vim-javascript'
@@ -71,7 +73,8 @@ let g:coc_global_extensions = [
     \ 'coc-tsserver',
     \ 'coc-python',
     \ 'coc-json',
-     \ 'coc-css',
+    \ 'coc-css',
+    \ 'coc-vetur',
     \]
 
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
