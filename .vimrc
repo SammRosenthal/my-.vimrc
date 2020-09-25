@@ -39,7 +39,7 @@ nmap gt <Plug>(coc-type-definition)
 
 call plug#begin("~/.vim/plugged")
 Plug 'tomtom/tcomment_vim'
-Plut 'leafOfTree/vim-vue-plugin'
+Plug 'leafOfTree/vim-vue-plugin'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'pangloss/vim-javascript'
