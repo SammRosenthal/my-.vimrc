@@ -10,6 +10,7 @@
 - Bracket Pair Colorizer 2
 - indent-rainbow
 - Python
+- Java Extension Pack
 - Stack Trace Formatter
 - Vim
 - XML Tools
