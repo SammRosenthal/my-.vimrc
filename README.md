@@ -3,8 +3,9 @@
 
 * Install vim-plug to handle your plugins
     * https://github.com/junegunn/vim-plug
-* Install sharpkeys to remap escape and caps lock
-    * https://www.randyrants.com/category/sharpkeys/
+* Install the tools below to remap escape and caps lock
+    * https://www.randyrants.com/category/sharpkeys/ - this is for windows
+    * https://karabiner-elements.pqrs.org/ - this is for mac
 
 * Install the following:
     * git
