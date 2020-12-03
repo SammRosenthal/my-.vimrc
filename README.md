@@ -9,6 +9,8 @@
     
 * Key remap for Ubuntu
    * https://askubuntu.com/questions/24916/how-do-i-remap-certain-keys-or-devices
+   * this is better -> 
+      * in your home directory add ```setxkbmap -option caps:swapescape``` to your .profile file
 
 * Install the following:
     * git
