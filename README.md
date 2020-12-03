@@ -6,6 +6,9 @@
 * Install the tools below to remap escape and caps lock
     * https://www.randyrants.com/category/sharpkeys/ - this is for windows
     * https://karabiner-elements.pqrs.org/ - this is for mac
+    
+* Key remap for Ubuntu
+   * https://askubuntu.com/questions/24916/how-do-i-remap-certain-keys-or-devices
 
 * Install the following:
     * git
