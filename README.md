@@ -29,3 +29,5 @@
     * Python
     * css/sass
     * C++
+* for typescript support on linux environment use this
+   * git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/pack/typescript/start/typescript-vim
