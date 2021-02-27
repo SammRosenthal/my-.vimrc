@@ -11,6 +11,10 @@
    * https://askubuntu.com/questions/24916/how-do-i-remap-certain-keys-or-devices
    * this is better -> 
       * add ```setxkbmap -option caps:swapescape``` to your startup programs
+   * keychron f key fix
+      * echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode 
+      * echo "options hid_apple fnmode=0" | sudo tee -a /etc/modprobe.d/hid_apple.conf
+      * restart comp
 
 * Install the following:
     * git
