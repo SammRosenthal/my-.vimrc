@@ -1,7 +1,7 @@
 # My .vimrc
 
 
-* Install vim-plug to handle your plugins
+* Install vim-plug to handle your plugins - Use the curl version of the install for windows in a bash shell
     * https://github.com/junegunn/vim-plug
 * Install the tools below to remap escape and caps lock
     * https://www.randyrants.com/category/sharpkeys/ - this is for windows
