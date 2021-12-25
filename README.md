@@ -16,22 +16,4 @@
       * echo "options hid_apple fnmode=0" | sudo tee -a /etc/modprobe.d/hid_apple.conf
       * restart comp
 
-* Install the following:
-    * git
-    * nodejs
-    * npm
-    * neovim
-
-* Paste the contens of the .vimrc file in this repo to "~/.vimrc" on your machine
-* Install plugins by running :PlugInstall
-
-* Currently supports these languages:
-    * Javascript
-    * Node
-    * React
-    * Vue
-    * Python
-    * css/sass
-    * C++
-* for typescript support on linux environment use this
-   * git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/pack/typescript/start/typescript-vim
+* Font - https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Inconsolata.zip
