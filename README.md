@@ -17,3 +17,5 @@
       * restart comp
 
 * Font - https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Inconsolata.zip
+* Terminal
+   * Oh-My-Zsh (Theme: powerlevel10k)
